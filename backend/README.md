@@ -73,7 +73,7 @@ This separation allows for optimized:
   - Encapsulates complex query logic for specific use cases
   - Handles data transformation between ORM models and domain entities
   - Manages transaction boundaries for data operations
-- **Why it matters**: This layer decouples business logic from specific database technologies, making the system more testable and allowing the data access approach to evolve independently from business logic.
+- **Why it matters**: This layer decouples business logic from specific database technologies, making the system more testable and allowing the data access approach to evolve independently of business logic.
 
 #### 4. Data Layer (`/database/`)
 - **Primary Purpose**: Manages database connectivity and data structure definitions
@@ -415,8 +415,8 @@ pytest --cov=. tests/
 Build and run with Docker:
 
 ```
-docker build -t agndb-backend .
-docker run -p 8000:8000 --env-file .env agndb-backend
+docker build -t agndb-backend:dev .
+docker run -p 8000:8000 --env-file .env agndb-backend:dev
 ```
 
 ## Performance Considerations
