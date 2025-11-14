@@ -1,0 +1,69 @@
+services:
+  db:
+    image: mariadb:11.8.3
+    restart: always
+    healthcheck:
+      test: [ 'CMD-SHELL', 'mariadb-admin -u root ping -h 127.0.0.1 --password="$$(cat /run/secrets/db-password)" --silent' ]
+      interval: 2s
+      retries: 5
+      start_period: 30s
+    secrets:
+      - db-password
+      - jackhu-password
+    volumes:
+      - agndb-data:/var/lib/mysql
+    networks:
+      - backnet
+    environment:
+      MYSQL_DATABASE: AGNDB_BETA
+      MYSQL_USER: jackhu
+      MYSQL_PASSWORD_FILE: /run/secrets/jackhu-password
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db-password
+    expose:
+      - "3306"
+
+  backend:
+    image: agndb-backend:dev
+    restart: always
+    secrets:
+      - jackhu-password
+    ports:
+      - "8000:8000"
+    networks:
+      - backnet
+      - frontnet
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_USER: jackhu
+      DB_PASSWORD_FILE: /run/secrets/jackhu-password
+      DB_NAME: AGNDB_BETA
+      DB_ECHO_LOG: "false"
+      DB_POOL_SIZE: "5"
+      DB_MAX_OVERFLOW: "10"
+
+  proxy:
+    image: agndb-frontend:dev
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - frontnet
+
+secrets:
+  db-password:
+    file: secrets/testdb-password.txt
+  jackhu-password:
+    file: secrets/jackhu.txt
+
+volumes:
+  agndb-data:
+
+networks:
+  frontnet:
+  backnet:

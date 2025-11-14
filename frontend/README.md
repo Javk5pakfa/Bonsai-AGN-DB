@@ -301,8 +301,8 @@ npm test
 Build and run with Docker:
 
 ```
-docker build -t agndb-frontend .
-docker run -p 80:80 -e VITE_API_URL=http://backend-host/api/v1 agndb-frontend
+docker build -t agndb-frontend:dev .
+docker run -p 80:80 -e VITE_API_URL=http://backend-host/api/v1 agndb-frontend:dev
 ```
 
 ## Performance Considerations
@@ -311,7 +311,7 @@ docker run -p 80:80 -e VITE_API_URL=http://backend-host/api/v1 agndb-frontend
 - **Error Boundaries**: Prevent cascading failures in the UI
 
 ## Future Enhancements
-(TODO--discussion neeeded)
+(TODO--discussion needed)
 
 Planned frontend enhancements include:
 - Improved visualization of astronomical data
