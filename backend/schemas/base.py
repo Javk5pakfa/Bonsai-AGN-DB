@@ -11,7 +11,6 @@ class BaseSchema(BaseModel):
         """Pydantic config for all schemas."""
         
         from_attributes = True  # For SQLAlchemy model compatibility
-        orm_mode = True
         populate_by_name = True
 
 
