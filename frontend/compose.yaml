@@ -1,6 +1,6 @@
 services:
   db:
-    image: mariadb:11.8.3
+    image: mariadb:12
     restart: always
     healthcheck:
       test: [ 'CMD-SHELL', 'mariadb-admin -u root ping -h 127.0.0.1 --password="$$(cat /run/secrets/db-password)" --silent' ]
