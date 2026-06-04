@@ -1,0 +1,32 @@
+# FastAPI and ASGI server
+fastapi==0.120.1
+uvicorn[standard]==0.38.0
+
+# Database
+sqlalchemy==2.0.44
+alembic==1.17.0
+asyncmy==0.2.11  # Async MySQL/MariaDB driver
+
+# Validation and serialization
+pydantic==2.12.3
+pydantic-settings==2.11.0
+email-validator==2.3.0
+
+# Logging
+loguru==0.7.3
+
+# Utilities
+python-dotenv==1.2.1
+pytz==2025.2
+orjson==3.11.6
+pur==7.3.3
+
+# Scientific/Astronomy
+pyvo==1.8  # For Virtual Observatory
+astropy==7.2.0  # Astronomy utilities
+pandas==2.3.3  # Data manipulation
+
+# Testing
+pytest
+pytest-asyncio
+httpx==0.28.1

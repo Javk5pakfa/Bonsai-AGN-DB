@@ -367,7 +367,7 @@ Structured logging is implemented with Loguru:
 
 5. **Run development server with auto-reload**:
    ```
-   uvicorn main:app --reload
+   uvicorn main:app --port 8000 --reload
    ```
 
 6. **Access API documentation**:
