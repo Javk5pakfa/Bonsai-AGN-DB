@@ -24,9 +24,9 @@ export default function Navbar() {
                 <div className="hidden md:block">
                     <div className="ml-10 flex items-baseline space-x-4">
                         <NavButton name="Home" route="/" />
-                        <NavButton name="Search" route="/search" />
-                        <NavButton name="People" route="/people" />
                         <NavButton name="Information" route='/information' />
+                        <NavButton name="Search (TBA)" route="/search" />
+                        <NavButton name="People" route="/people" />
                     </div>
                 </div>
                 <div className="md:hidden">
@@ -49,9 +49,9 @@ export default function Navbar() {
         <div className={clsx("md:hidden", isMenuOpen ? "block" : "hidden")}>
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-slate-200">
                 <NavButton name="Home" route="/" />
-                <NavButton name="Search" route="search" />
-                <NavButton name="People" route="people" />
                 <NavButton name="Information" route='information' />
+                <NavButton name="Search (TBA)" route="search" />
+                <NavButton name="People" route="people" />
             </div>
         </div>
     </header>)
