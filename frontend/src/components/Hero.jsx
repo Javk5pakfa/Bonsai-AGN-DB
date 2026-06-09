@@ -264,7 +264,7 @@ export default function Hero() {
 
             <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
                 <h1 className="text-3xl font-medium text-white sm:text-4xl mb-6">
-                    Active Galactic Nuclei Database (AGNDB)
+                    Active Galactic Nuclei Database
                 </h1>
                 <p className="mt-2 mb-8 text-base text-slate-300 sm:text-lg max-w-2xl mx-auto">
                     Comprehensive catalog of confirmed active galactic nuclei sources
